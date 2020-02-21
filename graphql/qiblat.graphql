@@ -1,0 +1,39 @@
+extend type Query {
+    qiblat(BK: Float = 39.82951944 BT: Float! LK: Float = 21.42191389 LT: Float! e: Float = null d: Float = null tanggal:Date = null TZ: Float!): Qiblat
+}
+
+type Qiblat {
+    e: String
+    d: String
+    A: String
+    h: String!
+    AZ: String!
+    AQ: String!
+    RQ: roshdulQiblat!
+    Jarak: Jarak!
+}
+type roshdulQiblat {
+    B: String!
+    P: String!
+    Ca: String!
+    BQ1: BQ!
+    BQ2: BQ!
+}
+
+type BQ {
+    WIS: String!
+    LMT: String!
+    WD: String!
+}
+
+type Jarak {
+    cara1: rumusJarak!
+    cara2: rumusJarak!
+}
+type rumusJarak{
+    AQ: String
+    C: String
+    E: String!
+    M: String!
+    KM: String!
+}

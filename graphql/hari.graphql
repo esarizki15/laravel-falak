@@ -1,0 +1,10 @@
+extend type Query {
+    hari(tanggal:Date = null): Hari
+}
+
+type Hari {
+    B: String
+    AM: String
+    Hari: String
+    Pasaran: String
+}

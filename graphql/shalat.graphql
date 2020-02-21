@@ -1,0 +1,30 @@
+extend type Query {
+    shalat(BT: Float! LK: Float = 21.42191389 LT: Float! e: Float = null d: Float = null tanggal:[Date] = null TZ: Float! TT: Float = 0): Shalat
+}
+
+type Shalat {
+    dzuhur: Waktu
+    ashar: Ashar
+    maghrib: String
+    isya: Waktu
+    shubuh: Waktu
+    imsak: Waktu
+    terbit: Terbit
+    dhuha: Waktu
+}
+type Terbit{
+    h: String
+    TR: Waktu
+}
+type Ashar{
+    B: String
+    H: String
+    F: String
+    G: String
+    As: Waktu
+}
+type Waktu {
+    WIS: String
+    LMT: String
+    WD: String
+}
