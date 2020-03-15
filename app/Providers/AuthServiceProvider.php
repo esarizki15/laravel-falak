@@ -24,11 +24,12 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->registerPolicies();
         $now = Carbon::now();
-        // $this->registerPolicies();
         Passport::routes();
         Passport::tokensExpireIn($now->addDays(1));
-
+        Passport::refreshTokensExpireIn($now->addDays(30));
+        Passport::personalAccessTokensExpireIn($now->addMonths(6));
         // Passport::refreshTokensExpireIn(now()->addDays(30));
 
         // Passport::personalAccessTokensExpireIn(now()->addMonths(6));

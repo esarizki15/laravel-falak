@@ -1,5 +1,8 @@
 extend type Query {
-    hari(tanggal:Date = null): Hari
+    hari(tanggal:[Date] = null batasAwal:Date = null batasAkhir:Date = null): [Hari]
+    hariHijri(tanggal:HijriDate!): HariHijri @field(resolver:"Hari@hariHijri")
+    hijriMiladi(tanggal:HijriDate = null mabdaHijri: MabdaHijri! hari:Int = null bulan:Int = null tahun:Int = null): HariHijri @field(resolver:"Hari@hijriMiladi")
+    miladiHijri(tanggal:HijriDate = null mabdaHijri: MabdaHijri! hari:Int = null bulan:Int = null tahun:Int = null): HariHijri @field(resolver:"Hari@miladiHijri")
 }
 
 type Hari {
@@ -7,4 +10,19 @@ type Hari {
     AM: String
     Hari: String
     Pasaran: String
+}
+
+type HariHijri {
+    AW: String!
+    AH: String!
+    AM: String!
+    tanggal: String!
+    bulan: String!
+    tahun: String!
+    hari: String!
+    pasaran: String!
+}
+enum MabdaHijri {
+  KAMIS @enum(value: 227015)
+  JUMAT @enum(value: 227016)
 }

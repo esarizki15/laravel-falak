@@ -1,0 +1,93 @@
+extend type Query {
+    faseBulan(tahun:Int = null bulan:Int = null TZ:Int = null): Fase
+    # ijtima(tanggal:HijriDate = null TZ:Int = null): Ijtima @field(resolver:"Hari@miladiHijri")
+}
+type Fase{
+  Ijtima: Ijtima
+  Istiqbal: Ijtima
+  firstQuarter: Quarter
+  lastQuarter: Quarter
+}
+type Quarter{
+  HY: String!
+  K: String!
+  T: String!
+  JD: String!
+  M: String!
+  Mq: String!
+  F: String!
+  T1: String!
+  T2: String!
+  T3: String!
+  T4: String!
+  T5: String!
+  T6: String!
+  T7: String!
+  T8: String!
+  T9: String!
+  T10: String!
+  T11: String!
+  T12: String!
+  T13: String!
+  T14: String!
+  T15: String!
+  MT: String!
+  JDI: String!
+  W1: String!
+  WD: String!
+  A: String!
+  B: String!
+  C: String!
+  D: String!
+  TGL: String!
+  BLN: String!
+  THN: String!
+  Hari: String!
+  Pasaran: String!
+}
+type Ijtima {
+    HY: String!
+    K: String!
+    T: String!
+    JD: String!
+    M: String!
+    Mq: String!
+    F: String!
+    T1: String!
+    T2: String!
+    T3: String!
+    T4: String!
+    T5: String!
+    T6: String!
+    T7: String!
+    T8: String!
+    T9: String!
+    T10: String!
+    T11: String!
+    T12: String!
+    T13: String!
+    MT: String!
+    JDI: String!
+    W1: String!
+    WD: String!
+    A: String!
+    B: String!
+    C: String!
+    D: String!
+    TGL: String!
+    BLN: String!
+    THN: String!
+    Hari: String!
+    Pasaran: String!
+}
+enum MabdaHijri {
+  KAMIS @enum(value: 227015)
+  JUMAT @enum(value: 227016)
+}
+
+# enum Jenis {
+#   IJTIMA @enum(value: 0)
+#   ISTIQBAL @enum(value: 0.5)
+#   FIRST_QUARTER @enum(value: 0.75)
+#   LAST_QUARTER @enum(value: 0.25)
+# }
